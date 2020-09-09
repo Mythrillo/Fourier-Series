@@ -1,5 +1,6 @@
 import pygame
 import math
+import os
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 
@@ -18,7 +19,7 @@ def main():
 
         x = 400
         y = 400
-
+        exit_handler()
         for i in range(number):
             prev_x = x
             prev_y = y
@@ -48,9 +49,15 @@ def main():
 
             pygame.draw.line(display, (0, 0, 0), (prev_curve_x, prev_curve_y), (curve_x, curve_y))
 
-        time += 0.025
+        time += 0.01
         pygame.display.update()
         clock.tick(fps)
+
+def exit_handler():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
 
 if __name__ == '__main__':
     main()
