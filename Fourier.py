@@ -1,6 +1,8 @@
 import pygame
 import math
 
+os.environ['SDL_VIDEO_CENTERED'] = '1'
+
 fps = 60
 display_height = 800
 display_width = 1200
